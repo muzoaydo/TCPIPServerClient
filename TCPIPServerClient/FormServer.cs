@@ -24,6 +24,8 @@ namespace TCPIPServerClient
         StreamReader oku;
         StreamWriter yaz;
 
+        //commit test
+
         public delegate void ricdegis(string text);
 
         public FormServer()
