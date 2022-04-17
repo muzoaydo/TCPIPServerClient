@@ -85,6 +85,7 @@ namespace TCPIPServerClient
             try
             {
                 ip = IPAddress.Parse("127.0.0.1");
+                //System.Net.IPAddress ip = System.Net.IPAddress.Parse(txtHost.Text);
                 listener = new TcpListener(ip, 80);
                 listener.Start();
                 thread = new Thread(new ThreadStart(OkuBasla));
@@ -94,7 +95,6 @@ namespace TCPIPServerClient
             }
             catch (Exception exx)
             {
-
                 MessageBox.Show("Dinleme başlatılamadı..\r\n" + exx.ToString());
             }
         }

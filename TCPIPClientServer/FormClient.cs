@@ -54,7 +54,6 @@ namespace TCPIPClientServer
                 }
                 catch (Exception)
                 {
-
                     return;
                 }
             }
@@ -64,7 +63,11 @@ namespace TCPIPClientServer
         {
             try
             {
-                baglantikur = new TcpClient("127.0.0.1", 80);
+                int intPortNo;
+                int.TryParse(txtHost.Text, out intPortNo);
+                string strIp = txtPort.Text;
+                //baglantikur = new TcpClient("127.0.0.1", 80);
+                baglantikur = new TcpClient(txtHost.Text, Convert.ToInt32(txtPort.Text));
                 thread = new Thread(new ThreadStart(okumayabasla));
                 thread.Start();
                 txtEkran.AppendText(DateTime.Now.ToString() + "Bağlantı kuruldu..\r\n");
@@ -100,6 +103,11 @@ namespace TCPIPClientServer
         private void btnKes_Click(object sender, EventArgs e)
         {
             baglantikur.Client.Close();
+        }
+
+        private void FormClient_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
